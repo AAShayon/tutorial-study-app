@@ -3,21 +3,20 @@ import 'package:tutorial_app/core/usecase/usecase.dart';
 import 'package:tutorial_app/core/utils/typedef.dart';
 import 'package:tutorial_app/src/authentication/domain/repositories/authentication_repository.dart';
 
-class CreateUser extends  UseCaseWithParams<void ,CreateUserParams>{
+class CreateUser extends UseCaseWithParams<void, CreateUserParams> {
   const CreateUser(this._repository);
 
   final AuthenticationRepository _repository;
 
   @override
-  ResultVoid call(CreateUserParams params) async =>_repository.createUser(
-      createAt: params.createAT,
-      name: params.name,
-      avatar: params.avatar,
-  );
-
-
+  ResultVoid call(CreateUserParams params) async => _repository.createUser(
+        createAt: params.createAT,
+        name: params.name,
+        avatar: params.avatar,
+      );
 }
-class CreateUserParams extends Equatable{
+
+class CreateUserParams extends Equatable {
   const CreateUserParams({
     required this.createAT,
     required this.name,
@@ -29,9 +28,7 @@ class CreateUserParams extends Equatable{
   final String avatar;
 
   @override
-  List<Object?> get props => [createAT ,name ,avatar];
-
-
+  List<Object?> get props => [createAT, name, avatar];
 }
 
 //  ResultVoid createUser({
